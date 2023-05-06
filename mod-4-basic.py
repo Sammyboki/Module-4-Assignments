@@ -34,8 +34,8 @@ def savings(gross_pay, tax_rate, expenses):
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
     def savings (gross_pay, tax_rate, expenses):
-      total_savings = gross_pay - tax_payment - expenses
-      return total_savings
+        total_savings = gross_pay - tax_payment
+        return total_savings
     
     gross_pay = int(float(input("What is your gross pay? "))*100)
     
@@ -43,13 +43,11 @@ def savings(gross_pay, tax_rate, expenses):
     
     expenses = int(float(input("How much is your total expenses? "))*100)
 
-    import math
-
-    tax_payment = math.floor(gross_pay * tax_rate)
+    tax_payment = (gross_pay * tax_rate) + expenses
 
     net_savings = savings (gross_pay, tax_rate, expenses)
 
-    print (net_savings)
+    print ("You have",net_savings, "centavos left.")
 
 def material_waste(total_material, material_units, num_jobs, job_consumption):
     '''Material Waste.
@@ -85,9 +83,9 @@ def material_waste(total_material, material_units, num_jobs, job_consumption):
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
     def material_waste(total_material, material_units, num_jobs, job_consumption):
-    used_materials = num_jobs * job_consumption
-    materials_left = total_material - used_materials
-    return materials_left
+        used_materials = num_jobs * job_consumption
+        materials_left = total_material - used_materials
+        return materials_left
     
     total_material = int(input("How much materials are available? "))
     material_units = str(input("Unit of measurement: "))
@@ -127,9 +125,8 @@ def interest(principal, rate, periods):
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
     def interest(principal, rate, periods):
-    simple_interest = rate * periods
-    final_value = principal + simple_interest
-    return final_value
+        simple_interest = principal * rate * periods
+        return simple_interest
     principal = int(float(input("What is your initial principal? ")))
     rate = float(input("Investment rate: "))
     periods = int(float(input("Number of periods invested: ")))
@@ -168,22 +165,20 @@ def body_mass_index(weight, height):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    def height(*height_list):
-    total_feet = feet_ans * 12
-    total_inches = total_feet + inches_ans
-    inches_to_meter = total_inches * 0.0254 
-    return inches_to_meter
-    
     def body_mass_index(weight,height):
-    height_squared = height(*height_list) **2
-    weight_kilos = weight * 0.45359237
-    bmi = weight_kilos / height_squared
-    return bmi
+        height_squared = height**2
+        weight_kilos = weight * 0.45359237
+        bmi = (weight_kilos / height_squared)
+        return bmi
     
-    feet_ans = float(input("Height in feet: "))
-    inches_ans = float(input("Height in inches: "))
+    person_height =(input("Height in feet: "))
     weight = float(input("Weight in pounds: "))
 
-    height_list = [feet_ans, inches_ans]
+    height_list = person_height.split("'")
+    total_feet = int(height_list[0])*12
+    total_inches = total_feet + int(height_list[1])
+    inches_to_meter = total_inches * 0.0254 
+    height = inches_to_meter
     bmi_final = body_mass_index(weight,height)
+
     print(bmi_final)
