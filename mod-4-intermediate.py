@@ -31,7 +31,18 @@ def shift_letter(letter, shift):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    def shift_letter(letter,shift):
+        order = alphabet.index(letter)
+        print(letter)
+
+        final_place = order + shift
+        if final_place <= 25:
+            alphabet[final_place]= letter
+            print(alphabet)
+        elif final_place > 25:
+            final_place = final_place - 26
+            alphabet[final_place]= letter
+            print(alphabet)
 
 def caesar_cipher(message, shift):
     '''Caesar Cipher. 
@@ -78,7 +89,19 @@ def shift_by_letter(letter, letter_shift):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    def shift_by_letter(letter, letter_shift):
+    
+        order = alphabet.index(letter)
+        shift = alphabet.index(letter_shift)
+  
+        final_place = order + shift
+        if final_place <= 25:
+            alphabet[final_place]= letter
+            print(alphabet)
+        elif final_place > 25:
+            final_place = final_place - 26
+            alphabet[final_place]= letter
+            print(alphabet)
 
 def vigenere_cipher(message, key):
     '''Vigenere Cipher. 
