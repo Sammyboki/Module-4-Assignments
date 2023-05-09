@@ -31,6 +31,7 @@ def shift_letter(letter, shift):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
+    alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
     def shift_letter(letter,shift):
         order = alphabet.index(letter)
         print(letter)
@@ -62,7 +63,26 @@ def caesar_cipher(message, shift):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+    new_message = []
+    new_str = ''
+    def caesar_cipher(message, shift):
+        message_list = list(message)
+        amount = len(message_list)
+        i = 0
+        for i in range(len(message_list)):
+            if message_list[i] == " ":
+                new_message.extend([" "])
+                i += 1
+            
+            elif message_list[i] != " ":
+                new_place = alphabet.index(message[i]) - shift
+                new_letter = alphabet[new_place]
+                new_message.extend([new_letter])
+                i += 1
+           
+        new_str = ''.join(map(str,new_message))
+        print (new_str)
 
 def shift_by_letter(letter, letter_shift):
     '''Shift By Letter. 
@@ -89,6 +109,7 @@ def shift_by_letter(letter, letter_shift):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
+    alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
     def shift_by_letter(letter, letter_shift):
     
         order = alphabet.index(letter)
@@ -130,4 +151,38 @@ def vigenere_cipher(message, key):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+
+    def vigenere_cipher(message, key):
+        key_list = []
+        length = len(message)
+        if len(key) == length:
+            key_list = list(key)
+        else:
+            for i in range(length):
+                key_list.append(key[i%len(key)])
+                i += 1
+        key_string = ''.join(map(str,key_list))        
+        print (key_string)
+    
+        message_list = list(message)
+        new_message_list = []
+        new_message =""
+        for j in range(len(message_list)):
+            if message_list[j] == " ":
+                new_message_list.append(' ')
+            
+            else:
+                movement = alphabet.index(message_list[j]) + alphabet.index(key_list[j])
+                if movement >= 26:
+                    movement -= 26
+                    new_message_list.append(alphabet[movement])
+                
+                else:
+                    new_message_list.append(alphabet[movement])
+        
+            new_message = ''.join(map(str,new_message_list))
+    
+        print (message)
+        print (new_message)
+        
