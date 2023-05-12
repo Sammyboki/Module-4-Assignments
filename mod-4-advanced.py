@@ -41,7 +41,54 @@ def relationship_status(from_member, to_member, social_graph):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    social_graph = {'@bongolpoc':[] , 
+                    '@joaquin':["@chums","@jobenilagan"], 
+                    '@chums':["@bongolpoc","@miketan","@rudyang","@joeilagan"],
+                    '@jobenilagan':["@eeebeee","@joeilagan","@chums","@joaquin"], 
+                    '@joeilagan':["@eeebeee","@jobenilagan","@chums"], 
+                    '@eeebeee':["@jobenilagan","@joeilagan"]}
+    
+    def relationship_status(from_member, to_member, social_graph):
+        if from_member == '@bongolpoc':
+            from_list = list(social_graph.values())[0]
+        elif from_member == '@joaquin':
+            from_list = list(social_graph.values())[1]
+        elif from_member == '@chums':
+            from_list = list(social_graph.values())[2]
+        elif from_member == '@jobenilagan':
+            from_list = list(social_graph.values())[3]
+        elif from_member == '@joeilagan':
+            from_list = list(social_graph.values())[4]
+        elif from_member == '@eeebeee':
+            from_list = list(social_graph.values())[5]
+        else:
+            from_list = from_member
+        
+        if to_member == '@bongolpoc':
+            to_list = list(social_graph.values())[0]
+        elif to_member == '@joaquin':
+            to_list = list(social_graph.values())[1]
+        elif to_member == '@chums':
+            to_list = list(social_graph.values())[2]
+        elif to_member == '@jobenilagan':
+            to_list = list(social_graph.values())[3]
+        elif to_member == '@joeilagan':
+            to_list = list(social_graph.values())[4]
+        elif to_member == '@eeebeee':
+            to_list = list(social_graph.values())[5]
+        else:
+            to_list = to_member
+        
+        if from_member not in to_list:
+            if to_member not in from_list:
+                print ('no relationship')
+            else:
+                print ('follower')
+        else:
+            if to_member not in from_list:
+                print('followed by')
+            else:
+                print('friends')
 
 
 def tic_tac_toe(board):
