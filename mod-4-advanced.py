@@ -117,7 +117,62 @@ def tic_tac_toe(board):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    character_list = []
+    def tic_tac_toe(board):
+        grid = len(board)
+        no_winner = 0
+        winner_X = 0
+        winner_O = 0
+    
+        #horizontal wins
+        for i in range(grid):
+            X = 0
+            O = 0 
+            for j in range(grid):
+                if board[i][j] == "X":
+                    X += 1
+                elif board[i][j] == "O":
+                    O += 1
+                elif board[i][j] != "O":
+                    O += 0
+                elif board[i][j] != "X":
+                    O += 0 
+            
+                if X == grid:
+                    winner_X += 1 
+                elif O == grid:
+                    winner_O += 1
+        if X != grid and O != grid:
+            no_winner += 1
+    
+        #vertical wins
+        for i in range(grid):
+            X = 0
+            O = 0 
+            for j in range(grid):
+                if board[j][i] == "X":
+                    X += 1
+                elif board[j][i] == "O":
+                    O += 1
+                elif board[j][i] != "O":
+                    O += 0
+                elif board[j][i] != "X":
+                    O += 0 
+            
+                if X == grid:
+                    winner_X += 1 
+                elif O == grid:
+                    winner_O += 1
+        if X != grid and O != grid:
+            no_winner += 1
+        
+        if winner_X >= 1:
+            print ("X wins")
+        elif winner_O >= 1:
+            print ("O wins")
+        else:
+            print("NO WINNER")
+        
 
 def eta(first_stop, second_stop, route_map):
     '''ETA. 
