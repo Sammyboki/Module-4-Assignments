@@ -205,4 +205,31 @@ def eta(first_stop, second_stop, route_map):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    def eta(first_stop, second_stop, route_map):
+        route = list(legs)
+        time = legs.values()
+        time_list = list(time)
+        route_1 = list(route[0])
+        route_2 = list(route[1])
+        route_3 = list(route[2])
+        time_to_1 = list(time_list[0].values())
+        time_to_2 = list(time_list[1].values())
+        time_to_3 = list(time_list[2].values())
+        if first_stop == route_1[0] and second_stop == route_1[1]:
+            print(time_to_1[0])
+        elif first_stop == route_2[0] and second_stop == route_2[1]:
+            print(time_to_2[0])
+        elif first_stop == route_3[0] and second_stop == route_3[1]:
+            print(time_to_3[0])
+        elif first_stop == second_stop:
+            total_time = int(time_to_1[0])+ int(time_to_2[0])  + int(time_to_3[0])
+            print(total_time)
+        elif first_stop == route_2[0] and second_stop == route_3[1]:
+            total_time = int(time_to_2[0])  + int(time_to_3[0])
+            print (total_time)
+        elif first_stop == route_1[0] and second_stop == route_2[1]:
+            total_time = int(time_to_1[0])  + int(time_to_2[0])
+            print (total_time)
+        elif first_stop == route_3[0] and second_stop == route_1[1]:
+            total_time = int(time_to_1[0])  + int(time_to_3[0])
+            print (total_time)
